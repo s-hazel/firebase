@@ -1,0 +1,138 @@
+@media(max-width: 1240px) {
+  .right {
+    display: none;
+  }
+}
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+.two-sided {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  width: 100vw;
+}
+
+.left, .right {
+  flex: 1 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.hr {
+  margin: 20px 0;
+  background-color: rgb(193, 193, 193);
+  height: 1px;
+}
+
+.right {
+  background-image: url("/public/IMG_3250.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  /* background: linear-gradient(to right, #ff8c37, #ec3750); */
+  border-radius: 20px;
+}
+
+.traditional {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  border-radius: 10px;
+  padding: 10%;
+}
+
+.traditional input {
+  padding: 10px;
+  border: 1px solid rgb(193, 193, 193);
+  border-radius: 5px;
+  outline: none;
+}
+
+.traditional input:focus {
+  border: 1px solid rgb(184, 17, 31);
+}
+
+.traditional button {
+  background: rgb(184, 17, 31);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 12px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pass {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 50px;
+  border: 1px solid rgb(193, 193, 193);
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.app-name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.forgot {
+  color: black;
+  font-weight: bold;
+  transition: color 1s;
+  cursor: pointer;
+}
+
+.forgot:hover {
+  color: rgb(184, 17, 31);
+}
+
+.tagline {
+  color: rgb(130, 130, 130);
+}
+
+.login {
+  cursor: pointer;
+  background-color: #fff;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 60px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.alt-login {
+  display: flex;
+  justify-content: center;
+}
+
+.authority {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+.error-message {
+  font-size: 12px;
+  color:rgb(184, 17, 31);
+}

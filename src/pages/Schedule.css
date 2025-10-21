@@ -1,0 +1,344 @@
+.t-label,
+.t-content {
+    border: none;
+    box-sizing: border-box;
+}
+
+
+.t-content {
+    text-align: center;
+    width: 12vw;
+    height: 8vh;
+    border: 1px solid #a8a8a8;
+}
+
+.t-content .t-input {
+    /* text-align: center; */
+    font-size: 1.4rem;
+    resize: none;
+    text-align: center;
+}
+
+.t-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .schedule .t-content {
+    color: #fff;
+} */
+
+.schedule {
+    width: 100%;
+}
+
+
+.filler-clock {
+    width: 60px;
+    height: 40px;
+    border-bottom: 1px solid #a8a8a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.t-weekday {
+    width: 20%;
+    padding: 10px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #a8a8a8;
+}
+
+.t-weekday:nth-child(1) {
+    border-left: none;
+}
+
+.flex {
+    width: 100%;
+}
+
+.schedule,
+.special-schedule {
+    border-collapse: collapse;
+}
+
+.special-row:nth-child(2) td {
+    border: 1px solid #000;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 300;
+}
+
+.special-cases {
+    display: flex;
+    gap: 10px;
+}
+
+.case {
+    width: 10rem;
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+}
+
+.date {
+    width: 10rem;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #000;
+    font-size: 1rem;
+}
+
+.day-edit {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+/* .tr-schedule:nth-child(2) {
+    background-color: #535E61;
+}
+
+.tr-schedule:nth-child(3) {
+    background-color: #445154;
+}
+
+.tr-schedule:nth-child(4) {
+    background-color: #353838;
+}
+
+.tr-schedule:nth-child(5) {
+    background-color: #931310;
+}
+
+.tr-schedule:nth-child(6) {
+    background-color: #b71212;
+}
+
+.tr-schedule:nth-child(7) {
+    background-color: #CC1010;
+} */
+
+.t-changes {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+.t-changes th {
+    text-align: left;
+}
+
+.t-changes td,
+.t-changes th {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+
+
+.expanded {
+    flex: 3;
+    height: 75vh;
+    overflow: scroll;
+    max-height: 650px;
+    display: flex;
+    flex-direction: row;
+}
+
+.times {
+    border: 1px solid #a8a8a8;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+/* .events {
+    width: 100%;
+    height: 100%;
+} */
+
+.event {
+    height: 60px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid purple;
+    color: purple;
+    border-radius: 10px;
+    gap: 5px;
+}
+
+.events {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* 16 hrs * 60 min * 2px per min */
+}
+
+.event {
+    border: 1px solid var(--melrose-red);
+    color: var(--melrose-red);
+    border-radius: 8px;
+    padding: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+
+.event_class {
+    font-size: 1rem;
+}
+
+.event_name {
+    font-weight: bold;
+}
+
+.hour {
+    width: 60px;
+    height: 120px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    box-sizing: border-box;
+}
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+    .overflow {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .special-schedule {
+        display: flex;
+    }
+
+    .special-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .special-row:nth-child(1) {
+        width: 40%;
+    }
+
+    .special-row:nth-child(2) {
+        width: 60%;
+    }
+
+    .special-row:nth-child(1) td {
+        border: none;
+    }
+
+    .special-row:nth-child(2) td {
+        border: none;
+        border-bottom: 1px solid #000;
+        width: 100%;
+    }
+
+    .special-body {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .t-changes {
+        border: none;
+    }
+
+    .t-changes thead {
+        display: none;
+    }
+
+    .t-changes,
+    .t-changes tbody,
+    .t-changes tr,
+    .t-changes td {
+        display: block;
+        width: 100%;
+        /* Ensure they take full width */
+    }
+
+    .t-changes tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .t-changes tr {
+        padding: 5px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+
+    .t-changes tr td:last-child {
+        border-bottom: none;
+    }
+
+    .t-changes td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        text-align: right;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+
+    /* Add the label using the ::before pseudo-element */
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    .save {
+        width: 100%;
+        /* padding: 12px; */
+        font-size: 1rem;
+    }
+}
+
+.trash-can {
+    cursor: pointer;
+    transition: color 1s;
+}
+
+.trash-can:hover {
+    color: #ec3750;
+}

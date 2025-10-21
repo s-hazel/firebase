@@ -1,0 +1,60 @@
+.cover {
+    width: 100%;
+    height: 30vh;
+    object-fit: contain;
+    /* object-position: left; */
+    background-image: url("https://images.pexels.com/photos/14770618/pexels-photo-14770618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    /* background-image: url("https://tappe.com/wp-content/uploads/Melrose-02.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: 0% 15%; */
+    background-position: center;
+    /* background-image: url("./lights-background.jpg"); */
+    opacity: 80%;
+}
+
+.banner {
+    width: 100%;
+    position: relative;
+}
+
+.orpheus {
+    position: absolute;
+    top: 0;
+    height: 30vh;
+    max-width: 90%;
+}
+
+.launch {
+    color: #fff;
+    background-color: var(--melrose-red);
+}
+
+.help {
+    border: 1px solid #000;
+    color: #000;
+}
+
+.launch, .help {
+    text-decoration: none;
+    padding: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 200px;
+    min-width: 100px;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .cover {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,142 @@
+.sidebar {
+    padding: 20px;
+    width: 20vw;
+    height: 100vh;
+    box-sizing: border-box;
+    border-right: 1px solid rgb(193, 193, 193);
+    background-color: #fff;
+    /* background: rgb(184, 17, 31); */
+    /* background: linear-gradient(to right, #ff8c37, #ec3750); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.nav-logo {
+    width: 50px;
+    border: 1px solid rgb(193, 193, 193);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.log-out {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #282828;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: rgb(77, 77, 77);
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    height: 2rem;
+    border-bottom: 1px solid #fff;
+}
+
+.link:hover {
+    color: #000;
+}
+
+.active {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+/* @media screen and (max-width: 1000px) {
+    .sidebar .nav-logo {
+        width: 24px;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+    }
+    .link-label {
+        display: none;
+    }
+    .sidebar {
+        width: 64px;
+    }
+    .link {
+        width: 24px;
+    }
+    .log-out {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+    }
+} */
+
+.hidden-check {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.hidden-check:checked ~ div .pages {
+    display: flex;
+}
+
+.hidden-check:checked ~ .log-out {
+    display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+    .nav-logo {
+        width: 1.8rem;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar {
+        width: 100vw;
+        height: auto;
+        position: relative;
+        border: none;
+    }
+    .pages {
+        margin: 20px 0;
+        width: 100%;
+        display: none;
+    }
+    .link {
+        width: 100%;
+    }
+    .log-out {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+    }
+}

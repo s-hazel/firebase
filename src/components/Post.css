@@ -1,0 +1,37 @@
+.post {
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.post-group {
+    font-weight: bold;
+    font-size: 16px;
+}
+.post-body {
+    font-size: 18px;
+}
+
+.post-email {
+    color: #0068bd;
+}
+
+.trash {
+    padding: 10px;
+    cursor: pointer;
+    transition: color 1s;
+}
+
+.trash:hover {
+    color: #ec3750;
+}

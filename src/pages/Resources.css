@@ -1,0 +1,14 @@
+ul {
+    display: block;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+    padding-inline-start: 30px;
+}
+
+hr {
+    margin-bottom: 10px;
+}
+
+a {
+    overflow-wrap: anywhere;
+}

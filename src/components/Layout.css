@@ -1,0 +1,39 @@
+.layout {
+    display: flex;
+    width: 100vw;
+}
+
+.outlet {
+    padding: 20px;
+    flex: 1;
+}
+
+.right-side {
+    flex: 1;
+}
+
+.nav {
+    width: 20vw;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+/* @media screen and (max-width: 1000px) {
+    .nav {
+        width: 64px;
+    }
+} */
+
+@media screen and (max-width: 1000px) {
+    .layout {
+        flex-direction: column;
+    }
+    .nav {
+        width: 100vw;
+    }
+    .outlet {
+        padding-top: 0;
+    }
+}
