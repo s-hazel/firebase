@@ -75,7 +75,7 @@ const TV = () => {
                 }
                 setMenuToday(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
             } catch (error) {
-                alert(error)
+                console.log(error)
                 setMenuToday(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
             }
         }
