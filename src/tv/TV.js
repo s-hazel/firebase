@@ -57,6 +57,7 @@ const TV = () => {
 
                 const res = await fetch(`/api/menu?date=${year}/${month}/${day}`)
                 const data = await res.json()
+                console.log(data)
                 const loop = data["days"]
 
                 let today = {}
