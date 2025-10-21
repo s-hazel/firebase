@@ -25,6 +25,7 @@ const TV = () => {
     const [weatherTemp, setWeatherTemp] = useState(0)
     const [weatherHi, setWeatherHi] = useState(0)
     const [weatherLo, setWeatherLo] = useState(0)
+    const [weatherDesc, setWeatherDesc] = useState("")
 
     const [menuToday, setMenuToday] = useState(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
 
@@ -39,6 +40,7 @@ const TV = () => {
                 setWeatherTemp(Math.round(weatherData["current"]["temperature_2m"]))
                 setWeatherHi(Math.round(weatherData["daily"]["temperature_2m_max"][0]))
                 setWeatherLo(Math.round(weatherData["daily"]["temperature_2m_min"][0]))
+                setWeatherDesc(wmo[weatherData["daily"]["weather_code"][0]].description)
             } catch (err) {
                 console.log(err)
             }
@@ -51,7 +53,7 @@ const TV = () => {
                 // const proxyUrl = "https://corsproxy.io/?"
                 const targetUrl = "https://melroseschools.api.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/2025/10/17/"
                 // const res = await fetch(proxyUrl + encodeURIComponent(targetUrl))
-                
+
                 const dateToday = date.toISOString().split("T")[0]
 
                 const res = await fetch(`/api/menu?date=${dateToday}`)
@@ -176,13 +178,14 @@ const TV = () => {
                     </div>
                     <div className="weather">
                         {/* <img src="https://cdn.pixabay.com/photo/2017/12/28/17/41/summer-3045780_1280.jpg" alt="" className="weatherImage" /> */}
-                        <img src="https://cdn.pixabay.com/photo/2021/05/10/14/48/rain-6243559_1280.jpg" alt="" className="weatherImage" />
+                        {/* <img src="https://cdn.pixabay.com/photo/2021/05/10/14/48/rain-6243559_1280.jpg" alt="" className="weatherImage" /> */}
+                        <img src="https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1740" alt="" className="weatherImage" />
 
                         <div className="weatherData">
                             <div className="mainWeather">
                                 <p className="temp">{weatherTemp}<span className="degrees"> °F</span></p>
 
-                                <p className="weatherDesc">Sunny</p>
+                                <p className="weatherDesc">{weatherDesc}</p>
                             </div>
                             <div className="extraWeather">
                                 <p className="precipitation">Hi {weatherHi} / Lo {weatherLo}</p>
