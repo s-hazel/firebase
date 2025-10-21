@@ -44,7 +44,7 @@ const TV = () => {
             }
         }
 
-        // weather()
+        weather()
 
         const fetchLunch = async () => {
             try {
