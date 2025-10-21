@@ -53,9 +53,8 @@ const TV = () => {
                 // const res = await fetch(proxyUrl + encodeURIComponent(targetUrl))
                 
                 const dateToday = date.toISOString().split("T")[0]
-                const [year, month, day] = dateToday.split('-')
 
-                const res = await fetch(`/api/menu?date=${year}/${month}/${day}`)
+                const res = await fetch(`/api/menu?date=${dateToday}`)
                 const data = await res.json()
                 console.log(data)
                 const loop = data["days"]
