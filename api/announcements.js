@@ -1,3 +1,5 @@
+import Papa from "papaparse"
+
 export default async function handler(req, res) {
 const CSV = "https://docs.google.com/spreadsheet/ccc?key=1C_Rmk0act0Q8VHdjeh0TAsmfbWtvK_P9z25U-7BJW78&output=csv";
 
