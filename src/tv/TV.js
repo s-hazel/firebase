@@ -29,6 +29,8 @@ const TV = () => {
 
     const [menuToday, setMenuToday] = useState(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
 
+    const [announcements, setAnnouncements] = useState({ data: [] })
+
     // To get around CORS in development, you can use a proxy server.
     // Example: Use a public CORS proxy like 'https://corsproxy.io/?' or 'https://api.allorigins.win/raw?url='
     useEffect(() => {
@@ -46,7 +48,7 @@ const TV = () => {
             }
         }
 
-        weather()
+        // weather()
 
         const fetchLunch = async () => {
             try {
@@ -82,8 +84,40 @@ const TV = () => {
             }
         }
 
-        fetchLunch()
+        // fetchLunch()
+
+
+        const fetchAnn = async () => {
+            try {
+                const res = await fetch("/api/announcements")
+                const data = await res.json()
+                setAnnouncements(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchAnn()
     }, [])
+
+    const [currentAnn, setCurrentAnn] = useState(0)
+
+    useEffect(() => {
+        const annInterval = setInterval(() => {
+            setCurrentAnn(prev => {
+                if (prev < announcements?.data.length - 1) {
+                    return prev + 1
+                } else {
+                    return 0
+                }
+            })
+        }, 10000)
+
+        return () => {
+            clearInterval(annInterval)
+        }
+    }, [announcements?.data.length])
+
 
     const [percentComplete, setPercentComplete] = useState("0%")
 
@@ -213,11 +247,38 @@ const TV = () => {
                     </div>
                     <div className="annTag">
                         <p className="annStatic">Announcements</p>
-                        <p className="annFraction">1/6</p>
+                        <p className="annFraction">
+                            {announcements?.data.length > 0
+                                ? `${currentAnn + 1}/${announcements.data.length}`
+                                : "0/0"
+                            }
+                        </p>
                     </div>
                     <div className="announcement">
-                        <div className="caughtUp">All caught up!</div>
-                        {/* <div className="annContent">All caught up!</div> */}
+                        {announcements.data.length > 0 ? (
+                            <div className="fullAnn">
+                                <div className="annText">
+                                    <p className="annOrganization">
+                                        {announcements.data[currentAnn]?.organization}
+                                    </p>
+                                    <p className="annBody">
+                                        {announcements.data[currentAnn]?.body}
+                                    </p>
+                                    <p className="annContact">
+                                        Contact {announcements.data[currentAnn]?.email} for more information.
+                                    </p>
+                                </div>
+                                {announcements.data[currentAnn].cost && (
+                                    <div className="cost">
+                                        <img src="./coin.svg" alt="" className="coin" />
+                                        <p className="annCost">{announcements.data[currentAnn]?.cost}</p>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="caughtUp">All caught up!</div>
+                        )
+                        }
                     </div>
                 </div>
 

@@ -260,3 +260,37 @@
     overflow-y: auto;
     min-height: 0;
 }
+
+.fullAnn {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.annText {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.annOrganization {
+    font-weight: bold;
+}
+
+.cost {
+    font-size: 1.4rem;
+    background-color: #118c4f;
+    color: #fff;
+    padding: 5px 15px 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    gap: 8px;
+    width: fit-content;
+    font-weight: 300;
+}
+
+.coin {
+    width: 20px;
+}
