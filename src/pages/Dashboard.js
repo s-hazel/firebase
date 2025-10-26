@@ -14,8 +14,8 @@ const Dashboard = () => {
         <>
             <h1>Welcome</h1>
             <hr />
-            <p>MHS Info TV since November 2023</p>
-            <p>v2.0 February 2025</p>
+            <p>MHS Info TV</p>
+            <p>v2.0</p>
             <h2 className="v-pad">Quick Actions</h2>
             <div className="quick-actions">
                 <a href="/tv" className="launch">

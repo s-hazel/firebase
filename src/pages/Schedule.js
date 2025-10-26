@@ -263,7 +263,6 @@ const Schedule = () => {
                         console.warn(`Data consistency/retrieval issue for date ${dateStr} in entry ${special.id}. Matched via ${identifierInfo}. Retrieved times (${timesArray === null ? 'null' : typeof timesArray})/blocks (${blocksArray === null ? 'null' : typeof blocksArray}) are not valid arrays or couldn't be retrieved.`, { times: timesArray, blocks: blocksArray });
                     }
                 }
-                // No need for an 'else' here, if date wasn't found, we just continue to the next 'special' entry or finish the loop.
 
             } // End loop through schedit entries
 

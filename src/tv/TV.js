@@ -29,8 +29,6 @@ const TV = () => {
 
     const [announcements, setAnnouncements] = useState({ data: [] })
 
-    // To get around CORS in development, you can use a proxy server.
-    // Example: Use a public CORS proxy like 'https://corsproxy.io/?' or 'https://api.allorigins.win/raw?url='
     useEffect(() => {
         const weather = async () => {
             try {
@@ -46,7 +44,7 @@ const TV = () => {
             }
         }
 
-        // weather()
+        weather()
 
         const fetchLunch = async () => {
             try {
@@ -75,10 +73,10 @@ const TV = () => {
                         return
                     }
                 }
-                setMenuToday(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
+                setMenuToday(["https://cdn.pixabay.com/photo/2020/05/11/06/35/kitchen-utensils-5156691_1280.jpg", "No lunch today"])
             } catch (error) {
                 console.log(error)
-                setMenuToday(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
+                setMenuToday(["https://cdn.pixabay.com/photo/2020/05/11/06/35/kitchen-utensils-5156691_1280.jpg", "No lunch today"])
             }
         }
 
@@ -142,13 +140,10 @@ const TV = () => {
         let endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41)
 
         if (now >= startTime && now <= endTime) {
-            // Total duration in milliseconds
             let duration = endTime - startTime
 
-            // Elapsed time in milliseconds
             let elapsed = now - startTime
 
-            // Percentage of time elapsed
             let percentage = (elapsed / duration) * 100
 
             // Update the width of the progress bar
@@ -169,7 +164,6 @@ const TV = () => {
 
         let time1441 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41)
 
-        // Difference in milliseconds
         let difference = time1441 - now
 
         if (difference > 0) {
