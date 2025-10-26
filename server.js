@@ -7,7 +7,6 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Menu API endpoint
 app.get('/api/menu', async (req, res) => {
     const { date } = req.query;
 
@@ -22,11 +21,7 @@ app.get('/api/menu', async (req, res) => {
     }
 });
 
-
-// Install: npm install papaparse
-
-
-// Announcements API endpoint
+// install papaparse
 app.get('/api/announcements', async (req, res) => {
     const CSV = "https://docs.google.com/spreadsheet/ccc?key=1C_Rmk0act0Q8VHdjeh0TAsmfbWtvK_P9z25U-7BJW78&output=csv";
 

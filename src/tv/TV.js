@@ -3,8 +3,6 @@ import { useState, useEffect } from "react"
 import Block from "./Block"
 import wmo from "./wmoCodes.json"
 
-// progress doesn't show 100 after 1441
-
 const TV = () => {
     const date = new Date()
 
@@ -84,8 +82,7 @@ const TV = () => {
             }
         }
 
-        // fetchLunch()
-
+        fetchLunch()
 
         const fetchAnn = async () => {
             try {
@@ -98,6 +95,19 @@ const TV = () => {
         }
 
         fetchAnn()
+
+        const fetchSchedule = async () => {
+            try {
+                const res = await fetch("/api/aspen")
+                const data = await res.json()
+                console.log(data.times)
+                setSchedule(data.times)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchSchedule()
     }, [])
 
     const [currentAnn, setCurrentAnn] = useState(0)
@@ -130,8 +140,6 @@ const TV = () => {
         // Set the start and end times
         let startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 15)
         let endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 41)
-
-        var percentComplete = document.getElementById("percent-complete")
 
         if (now >= startTime && now <= endTime) {
             // Total duration in milliseconds
@@ -184,9 +192,6 @@ const TV = () => {
     ]
 
     const [schedule, setSchedule] = useState(fiveDays[date.getDay()])
-    const updateSchedule = () => {
-        // fetch special cases
-    }
 
     return (
         <div className="tv">
