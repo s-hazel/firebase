@@ -105,7 +105,7 @@ const TV = () => {
             }
         }
 
-        fetchSchedule()
+        // fetchSchedule()
     }, [])
 
     const [currentAnn, setCurrentAnn] = useState(0)
