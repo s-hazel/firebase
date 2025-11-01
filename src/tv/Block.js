@@ -1,7 +1,8 @@
-const Block = ({ content }) => {
+const Block = ({ letter, time }) => {
     return (
         <div className="block">
-            {content}
+            <p>{letter}</p>
+            <p>{time}</p>
         </div>
     )
 }

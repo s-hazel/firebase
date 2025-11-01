@@ -25,7 +25,7 @@ const TV = () => {
     const [weatherLo, setWeatherLo] = useState(0)
     const [weatherDesc, setWeatherDesc] = useState("")
 
-    const [menuToday, setMenuToday] = useState(["https://cdn.pixabay.com/photo/2017/07/18/03/47/picnic-2514668_960_720.jpg", "No lunch today"])
+    const [menuToday, setMenuToday] = useState(["./no-lunch.jpg", "No lunch today"])
 
     const [announcements, setAnnouncements] = useState({ data: [] })
 
@@ -44,7 +44,7 @@ const TV = () => {
             }
         }
 
-        weather()
+        // weather()
 
         const fetchLunch = async () => {
             try {
@@ -69,18 +69,23 @@ const TV = () => {
 
                 for (const item of today) {
                     if (item["position"] === 1) {
-                        setMenuToday([item["food"]["image_url"], item["food"]["name"]])
+                        // Empty image URLs
+                        if (item["food"]["image_url"] === "") {
+                            setMenuToday("./not-available", item["food"]["name"])
+                        } else {
+                            setMenuToday([item["food"]["image_url"], item["food"]["name"]])
+                        }
                         return
                     }
                 }
-                setMenuToday(["https://cdn.pixabay.com/photo/2020/05/11/06/35/kitchen-utensils-5156691_1280.jpg", "No lunch today"])
+                setMenuToday(["./no-lunch.jpg", "No lunch today"])
             } catch (error) {
                 console.log(error)
-                setMenuToday(["https://cdn.pixabay.com/photo/2020/05/11/06/35/kitchen-utensils-5156691_1280.jpg", "No lunch today"])
+                setMenuToday(["./no-lunch.jpg", "No lunch today"])
             }
         }
 
-        fetchLunch()
+        // fetchLunch()
 
         const fetchAnn = async () => {
             try {
@@ -92,20 +97,19 @@ const TV = () => {
             }
         }
 
-        fetchAnn()
+        // fetchAnn()
 
         const fetchSchedule = async () => {
             try {
                 const res = await fetch("/api/aspen")
                 const data = await res.json()
-                console.log(data.times)
-                setSchedule(data.times)
+                setSchedule(data)
             } catch (error) {
                 console.log(error)
             }
         }
 
-        // fetchSchedule()
+        fetchSchedule()
     }, [])
 
     const [currentAnn, setCurrentAnn] = useState(0)
@@ -185,7 +189,9 @@ const TV = () => {
         ["1", "2", "3", "4", "5", "6"]
     ]
 
-    const [schedule, setSchedule] = useState(fiveDays[date.getDay()])
+    const [schedule, setSchedule] = useState()
+    // const [schedule, setSchedule] = useState(fiveDays[date.getDay()])
+
 
     return (
         <div className="tv">
@@ -235,11 +241,19 @@ const TV = () => {
                 </div>
                 <div className="schedAnn">
                     <div className="schedule">
-                        <div className="blocks">
-                            {schedule.map(text => (
-                                <Block key={text} content={text} />
-                            ))}
+                        {schedule ? (
+                            <div className="blocks">
+                                {schedule.blocks.map((block, index) => (
+                                    <Block key={block} letter={block} time={schedule.times[index]} />
+                                ))}
+                            </div>
+                        ) : (
+                        <div className="load">
+                            <img src="./aspen-logo.png" alt="" className="aspen" />
+                            <div className="loader"></div>
                         </div>
+
+                        )}
                         <div className="progressOutline">
                             <div className="progress"></div>
                         </div>

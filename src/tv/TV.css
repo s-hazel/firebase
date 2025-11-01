@@ -294,3 +294,38 @@
 .coin {
     width: 20px;
 }
+
+/* schedule spinner */
+
+.load {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    position: relative;
+    margin-bottom: 12px;
+        border: 1px solid hsla(0, 0%, 84%, 1);
+border-radius: 10px;
+    /* border: 1px solid #000; */
+}
+
+.aspen {
+    width: 15px;
+    position: absolute;
+}
+
+.loader {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side, #10509b 94%, #0000) top/2px 2px no-repeat,
+        conic-gradient(#0000 30%, #10509b);
+    mask: radial-gradient(farthest-side, #0000 calc(100% - 2px), #000 0);
+    animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotate(1turn);
+    }
+}
