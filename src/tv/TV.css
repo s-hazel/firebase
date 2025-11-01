@@ -201,6 +201,22 @@
     background-color: hsla(0, 0%, 23%, 1);
     color: #fff;
     font-size: 3rem;
+    position: relative;
+    word-break: break-all;
+}
+
+.blockTime {
+    position: absolute;
+    bottom: 8%;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.blockMeets {
+    position: absolute;
+    top: 8%;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .progress {

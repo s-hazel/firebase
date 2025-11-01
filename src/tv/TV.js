@@ -103,7 +103,7 @@ const TV = () => {
             try {
                 const res = await fetch("/api/aspen")
                 const data = await res.json()
-                setSchedule(data)
+                setSchedule(data.schedule)
             } catch (error) {
                 console.log(error)
             }
@@ -190,6 +190,7 @@ const TV = () => {
     ]
 
     const [schedule, setSchedule] = useState()
+    // const [schedule, setSchedule] = useState({"times": ["8:15 AM - 9:17 AM", "9:20 AM - 10:17 AM", "10:20 AM - 11:17 AM", "11:19 AM - 12:41 PM", "12:44 PM - 1:41 PM", "1:44 PM - 2:41 PM"], "blocks": ["A(M,W,R,F)", "C(M,T,W,F)", "D(T,F)", "E(M,T,R,F)", "F(T,W,R,F)", "G(T,W,R,F)"]})
     // const [schedule, setSchedule] = useState(fiveDays[date.getDay()])
 
 
@@ -243,8 +244,8 @@ const TV = () => {
                     <div className="schedule">
                         {schedule ? (
                             <div className="blocks">
-                                {schedule.blocks.map((block, index) => (
-                                    <Block key={block} letter={block} time={schedule.times[index]} />
+                                {schedule.map(block => (
+                                    <Block key={block.block} meets={block.meets} letter={block.block} time={block.time} />
                                 ))}
                             </div>
                         ) : (
